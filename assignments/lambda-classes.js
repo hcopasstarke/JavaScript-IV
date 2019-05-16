@@ -22,15 +22,16 @@ class Instructor extends Person {
     grade(student, subject) {
         console.log(`${student} receives a perfect score on ${subject}`);
     }
+    instructorGrade() {
+        return Math.floor(Math.random() * 100 + 1);
+    }
 }
-
 class Student extends Person {
     constructor(attributes) {
         super(attributes);
         this.previousBackground = attributes.previousBackground;
         this.className = attributes.className;
         this.favSubjects = attributes.favSubjects;
-        this.grade = attributes.grade;
     }
     listsSubjects() {
         console.log(`${this.favSubjects}`);
@@ -41,17 +42,15 @@ class Student extends Person {
     sprintChallenge(subject) {
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
     }
-    instructorGrade() {
-        return Math.floor(Math.random() * 100 + 1);
-    }
     grade() {
         return Math.floor(Math.random() * 100 + 1);
     }
     graduate() {
-        if(student.grade() - dan.grade > 70) {
-            console.log(`${this.name} has graduated!`);
+        if(jay.grade() - dan.instructorGrade() > 30) {
+            console.log();
+            return `${this.name} has graduated!`;
         } else {
-            console.log(`${this.name} has failed.`);
+            return `${this.name} failed!`
         }
     }
 }
@@ -97,13 +96,15 @@ const adam = new ProjectManager({
     favInstructor: "Josh Knell"
 });
 
-console.log(jay.PRAssignment('PRA'));
-console.log(adam.standUp('group channel'));
-console.log(jay.listsSubjects()); 
-console.log(jay.sprintChallenge('JavaScript'));
+
 console.log(devin.speak());
-console.log(adam.debugsCode('Mike', 'LESS'));  
 console.log(dan.demo('parameters'));
 console.log(dan.grade('Mike', 'JS classes'));
-console.log(jay.grade());
 console.log(dan.instructorGrade());
+console.log(jay.listsSubjects()); 
+console.log(jay.PRAssignment('PRA'));
+console.log(jay.sprintChallenge('JavaScript'));
+console.log(jay.grade());
+console.log(jay.graduate());
+console.log(adam.standUp('group channel'));
+console.log(adam.debugsCode('Mike', 'LESS'));  
